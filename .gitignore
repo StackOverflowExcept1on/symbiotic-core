@@ -1,6 +1,14 @@
 # Compiler files
 cache/
 out/**/
+!out/DelegatorFactory.sol/
+!out/NetworkMiddlewareService.sol/
+!out/NetworkRegistry.sol/
+!out/OperatorRegistry.sol/
+!out/OptInService.sol/
+!out/SlasherFactory.sol/
+!out/Vault.sol/
+!out/VaultFactory.sol/
 
 # Ignore node_modules and dependencies
 node_modules
@@ -9,7 +17,6 @@ yarn-error.log
 
 # Ignore build outputs
 dist
-out
 **/__pycache__
 
 # Ignore environment files
@@ -29,7 +36,6 @@ Thumbs.db
 .vscode/
 
 cache/
-out/
 broadcast/
 deployments/
 
