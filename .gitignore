@@ -39,3 +39,6 @@ lcov.info
 /coverage
 /report
 .password
+
+# Soldeer
+dependencies/

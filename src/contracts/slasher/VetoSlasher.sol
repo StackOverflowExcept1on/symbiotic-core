@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: BUSL-1.1
-pragma solidity 0.8.25;
+pragma solidity ^0.8.25;
 
 import {BaseSlasher} from "./BaseSlasher.sol";
 
@@ -252,8 +252,7 @@ contract VetoSlasher is BaseSlasher, IVetoSlasher {
             }
 
             if (resolver_ != address(uint160(_resolver[subnetwork].latest()))) {
-                _resolver[subnetwork]
-                .push(
+                _resolver[subnetwork].push(
                     (IVault(vault_).currentEpochStart() + resolverSetEpochsDelay * IVault(vault_).epochDuration())
                     .toUint48(),
                     uint160(resolver_)

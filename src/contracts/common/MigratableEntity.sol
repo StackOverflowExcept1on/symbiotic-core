@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: BUSL-1.1
-pragma solidity 0.8.25;
+pragma solidity ^0.8.25;
 
 import {IMigratableEntity} from "../../interfaces/common/IMigratableEntity.sol";
 
 import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import {OwnableUpgradeable} from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
-import {ReentrancyGuardUpgradeable} from "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol";
+import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
-abstract contract MigratableEntity is Initializable, OwnableUpgradeable, ReentrancyGuardUpgradeable, IMigratableEntity {
+abstract contract MigratableEntity is Initializable, OwnableUpgradeable, ReentrancyGuard, IMigratableEntity {
     /**
      * @inheritdoc IMigratableEntity
      */
@@ -42,8 +42,6 @@ abstract contract MigratableEntity is Initializable, OwnableUpgradeable, Reentra
         notInitialized
         reinitializer(initialVersion)
     {
-        __ReentrancyGuard_init();
-
         if (owner_ != address(0)) {
             __Ownable_init(owner_);
         }

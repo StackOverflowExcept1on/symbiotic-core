@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: BUSL-1.1
-pragma solidity 0.8.25;
+pragma solidity ^0.8.25;
 
 import {Script} from "forge-std/Script.sol";
 
@@ -120,15 +120,15 @@ contract DeployVaultBase is Script {
             )
             .create(
                 IVaultConfigurator.InitParams({
-                    version: _getVaultVersion(),
-                    owner: params.owner,
-                    vaultParams: _getVaultParamsEncoded(params),
-                    delegatorIndex: params.delegatorIndex,
-                    delegatorParams: delegatorParamsEncoded,
-                    withSlasher: params.withSlasher,
-                    slasherIndex: params.slasherIndex,
-                    slasherParams: slasherParamsEncoded
-                })
+                version: _getVaultVersion(),
+                owner: params.owner,
+                vaultParams: _getVaultParamsEncoded(params),
+                delegatorIndex: params.delegatorIndex,
+                delegatorParams: delegatorParamsEncoded,
+                withSlasher: params.withSlasher,
+                slasherIndex: params.slasherIndex,
+                slasherParams: slasherParamsEncoded
+            })
             );
 
         if (params.vaultParams.whitelistedDepositors.length != 0) {
